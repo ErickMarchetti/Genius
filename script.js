@@ -42,11 +42,9 @@ function guardarCorClicada(event) {
     const botaoClicadoAtual = event.target.id
 
     sequenciaDeCoresUsuario.push(botaoClicadoAtual)
-
 }
 
-function compararCorClicada() {
-
+function compararCorClicada() { 
     let contadorDeAcertos = 0
     for(let i = 0; i < sequenciaDeCoresUsuario.length; i++) {
 
@@ -56,14 +54,13 @@ function compararCorClicada() {
         }
 
         else if(sequenciaDeCoresUsuario[i] === sequenciaDeCoresGeradas[i]) {
-            contadorDeAcertos++
+            contadorDeAcertos++ 
         }
     }
 
     if(contadorDeAcertos === sequenciaDeCoresGeradas.length) {
         executaSequencia()
-    }
-
+    }   
 }
 
 // function atualizarPontuação()
@@ -77,13 +74,13 @@ function rmOrAddEvent(removerOuAdicionar) {
     else if(removerOuAdicionar === 'add') {
         botoesColoridos.forEach(item => item.addEventListener('click', guardarCorClicada))
         botoesColoridos.forEach(item => item.addEventListener('click', compararCorClicada))
-    }
+    }   
 }
 
 function executaSequencia() {
     gerarCorAleatoria()
     sequenciaDeCoresUsuario = []
-    piscaCores()
+    piscaCores()  
 }
 
 function reiniciarJogo() {
