@@ -13,12 +13,10 @@ main{
     
 }
 
-
 .container{
     height: 200px;
     width: 200px;
 }
-
 
 .game{
     align-items: center;
@@ -46,7 +44,6 @@ main{
     align-items: center;
 }
 
-
 .cores{
     height: 45%;
     width: 45%;
@@ -58,7 +55,6 @@ div.cores.top-left{
     border-radius: 100% 5px 5px;
     background-color: aqua;
 }
-
 
 div.cores.top-right{
     border-radius: 5px 100% 5px 5px;
@@ -74,7 +70,6 @@ div.cores.bottom-right{
     border-radius: 5px 5px 100% 5px;  
     background-color: aqua; 
 }
-
 
 .score{
     width: 400px;
@@ -98,4 +93,8 @@ div.cores.bottom-right{
     color: white;
     opacity: 0.25;
     transition: 0.75s;
+}
+
+div.cores.botaoPiscando {
+    background-color: red;
 }
