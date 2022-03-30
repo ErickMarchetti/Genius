@@ -50,7 +50,6 @@ h1 {
     font-size: 25px;  
 }
 
-
 .cores{
     height: 45%;
     width: 45%;
@@ -71,7 +70,6 @@ div.cores.top-left{
    
 }
 
-
 div.cores.top-right{
     border-radius: 5px 100% 5px 5px;
     background-color: red;
@@ -87,7 +85,6 @@ div.cores.bottom-right{
     border-radius: 5px 5px 100% 5px;  
     background-color: yellow; 
 }
-
 
 .score{
     width: 400px;
@@ -122,4 +119,8 @@ div.cores.bottom-right{
 
 .corclicada{
   opacity: 0.70;
+}
+
+div.cores.botaoPiscando {
+    background-color: red;
 }
