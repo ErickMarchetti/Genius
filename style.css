@@ -1,5 +1,8 @@
+
 body{
     margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+
 }
 
 main{
@@ -9,93 +12,114 @@ main{
     align-items: center;
     flex-direction: column;
     justify-content: space-evenly;
-    background-color: aquamarine;
+    background-color:gray;
     
 }
 
 
-.container{
-    height: 200px;
-    width: 200px;
+
+h1 {
+   font-size:50px;
+   margin: 0;
 }
+
 
 
 .game{
-    align-items: center;
-    background-color:cadetblue;
+    background-color:rgba(0, 0, 0, 0.616);
     border-radius: 100%;
     display: flex;
+    align-items: center;
     flex-wrap: wrap;
-    width: 30vw;
-    height: 30vw;
+    width: 500px;
+    height:500px;
     justify-content: space-evenly;
-    padding: 1.5%;
-    position: relative;
-   
+       
 }
 
 .centro{
-    background-color: aliceblue;
+    background-color: white;
     border-radius: 100%;
     width: 150px;
     height:150px; 
-    border: 10px solid cadetblue;
+    border: 10px solid rgba(0, 0, 0, 0.74);
     position: fixed;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 25px;  
 }
 
 
 .cores{
     height: 45%;
     width: 45%;
-    opacity: 0.25;
-    transition: 0.75s;
+    transition: 0.75s;   
 }
 
+
+
+
+.cores:hover{    
+ transform: translateY(20px);
+}
+
+
 div.cores.top-left{
-    border-radius: 100% 5px 5px;
-    background-color: aqua;
+    border-radius: 100% 5px 5px; 
+    background-color: green;
+   
 }
 
 
 div.cores.top-right{
     border-radius: 5px 100% 5px 5px;
-    background-color: aqua;
+    background-color: red;
 }
 
 div.cores.bottom-left{
     border-radius: 5px 5px 5px 100%;
-    background-color: aqua;
+    background-color: blue;
+    
 }
 
 div.cores.bottom-right{
     border-radius: 5px 5px 100% 5px;  
-    background-color: aqua; 
+    background-color: yellow; 
 }
 
 
 .score{
     width: 400px;
+    height: 100px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-around;
     align-items: center;
     background-color: black;
     color: white;
-    opacity: 0.25;
+    opacity: 0.80;
     transition: 0.75s;
+    font-size: 20px; 
 }
 
 .frase{
     width: 400px;
     height: 50px;
+    margin: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     background-color: black;
     color: white;
-    opacity: 0.25;
+    opacity: 0.80;
     transition: 0.75s;
+    font-size: 20px; 
+}
+
+
+
+.corclicada{
+  opacity: 0.70;
 }
