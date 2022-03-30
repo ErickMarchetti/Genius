@@ -8,7 +8,7 @@ let contadorDoTemporizador = 0
 function piscaCores(arrayDeCores = sequenciaDeCoresGeradas) {
 
     contadorDoTemporizador = 0
-    botoesColoridos.forEach(item => item.removeEventListener('click', guardarCorClicada))
+    rmOrAddEvent('rm')
 
     let temporizador = setInterval(() => {
 
@@ -23,7 +23,7 @@ function piscaCores(arrayDeCores = sequenciaDeCoresGeradas) {
 
         if(contadorDoTemporizador === arrayDeCores.length) {
             clearInterval(temporizador)
-            botoesColoridos.forEach(item => item.addEventListener('click', guardarCorClicada))
+            rmOrAddEvent('add')
         }
 
     }, 1200)
@@ -45,14 +45,51 @@ function guardarCorClicada(event) {
 
 }
 
-// function compararCorClicada()
+function compararCorClicada() {
+
+    let contadorDeAcertos = 0
+    for(let i = 0; i < sequenciaDeCoresUsuario.length; i++) {
+
+        if(sequenciaDeCoresUsuario[i] !== sequenciaDeCoresGeradas[i]) {
+            alert('perdeu playboy')
+            rmOrAddEvent('rm')
+        }
+
+        else if(sequenciaDeCoresUsuario[i] === sequenciaDeCoresGeradas[i]) {
+            contadorDeAcertos++
+        }
+    }
+
+    if(contadorDeAcertos === sequenciaDeCoresGeradas.length) {
+        executaSequencia()
+    }
+
+}
 
 // function atualizarPontuação()
 
-function executaSequencia() {
+function rmOrAddEvent(removerOuAdicionar) {
+    if(removerOuAdicionar === 'rm') {
+        botoesColoridos.forEach(item => item.removeEventListener('click', guardarCorClicada))
+        botoesColoridos.forEach(item => item.removeEventListener('click', compararCorClicada))
+    }
 
-    gerarCorAleatoria()
-
-    piscaCores()
-
+    else if(removerOuAdicionar === 'add') {
+        botoesColoridos.forEach(item => item.addEventListener('click', guardarCorClicada))
+        botoesColoridos.forEach(item => item.addEventListener('click', compararCorClicada))
+    }
 }
+
+function executaSequencia() {
+    gerarCorAleatoria()
+    sequenciaDeCoresUsuario = []
+    piscaCores()
+}
+
+function reiniciarJogo() {
+    sequenciaDeCoresGeradas = []
+    executaSequencia()
+}
+
+const botaoComecar = document.querySelector('.centro')
+botaoComecar.addEventListener('click', reiniciarJogo)
