@@ -83,7 +83,7 @@ function compararCorClicada() {
 
         pontos.innerText = Pontuacao
 
-        if(Pontuacao === 1) {
+        if(Pontuacao === 7) {
             rmOrAddEvent('rm')
             frase.innerText = 'VITÓRIA'
             frase.classList.add('animacaoVitoria')
