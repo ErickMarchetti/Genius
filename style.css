@@ -19,7 +19,7 @@ main {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background: url(./img/teste2.jpg) no-repeat center;
+    background: url(./img/fundoDeMadeira.jpg) no-repeat center;
     background-size: cover;
     background-attachment: fixed;
 }
@@ -70,16 +70,20 @@ h1 {
     font-size: 20px;
     font-weight: bold;
     text-align: center;
+    transition: 0.5s;
+    cursor: pointer;
 }
 
 .centro:hover {
     background-color: white;
+    transform: scale(1.05);
 }
 
 .cores {
     height: 225px;
     width: 225px;
     transition: 0.5s;
+    cursor: pointer;
 }
 .botao:hover{    
     transform: scale(1.01);
@@ -136,11 +140,31 @@ div.cores.bottom-right {
     width: 400px;
 }
 
-.corClicada {
-    transform: scale(0.95);
-}
-
 div.cores.botaoPiscando {
     background-color: lightcyan;
     filter: drop-shadow(0px 0px 80px lightcyan);
+}
+
+.animacaoVitoria {
+    animation: vitoria 1.2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+.animacaoDerrota {
+    animation: derrota 6s;
+    animation-iteration-count: infinite;
+    animation-timing-function: cubic-bezier(0, 0, 0, 0);
+}
+
+@keyframes vitoria {
+    to {
+        transform: scale(1.3);
+    }
+}
+
+@keyframes derrota {
+    to {
+        transform: rotate(360deg);
+    }
 }
