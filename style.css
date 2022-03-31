@@ -50,13 +50,12 @@ h1 {
     font-size: 25px;  
 }
 
+
 .cores{
     height: 45%;
     width: 45%;
     transition: 0.75s;   
 }
-
-
 
 
 .cores:hover{    
@@ -116,11 +115,6 @@ div.cores.bottom-right{
 }
 
 
-
-.corclicada{
-  opacity: 0.70;
-}
-
 div.cores.botaoPiscando {
-    background-color: red;
+    opacity: 0.70
 }
