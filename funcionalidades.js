@@ -30,6 +30,7 @@ function piscaCores(arrayDeCores = sequenciaDeCoresGeradas) {
             clearInterval(temporizador)
             setTimeout(() => {
                 rmOrAddEvent('add')
+                frase.innerText = 'Sua vez'
             }, 900)
         }
 
@@ -60,15 +61,15 @@ function guardarCorClicada(event) {
 
 function compararCorClicada() {
 
-   let  contadorDeAcertos =0
+   let  contadorDeAcertos = 0
     for (let i = 0; i < sequenciaDeCoresUsuario.length; i++) {
         
 
         if(sequenciaDeCoresUsuario[i] !== sequenciaDeCoresGeradas[i]) {
             frase.innerHTML = "Não foi dessa vez, tente novamente!"
-            botaoComecar.innerHTML = "Jogar novamente"
+            frase.classList.add('animacaoDerrota')
+            botaoComecar.innerHTML = "JOGAR NOVAMENTE"
             rmOrAddEvent('rm')
-            
         }
 
         else if (sequenciaDeCoresUsuario[i] === sequenciaDeCoresGeradas[i]) {
@@ -77,8 +78,22 @@ function compararCorClicada() {
     }
 
     if (contadorDeAcertos === sequenciaDeCoresGeradas.length) {
-        executaSequencia()
-        frase.innerHTML = "Boa!"
+
+        Pontuacao++
+
+        pontos.innerText = Pontuacao
+
+        if(Pontuacao === 1) {
+            rmOrAddEvent('rm')
+            frase.innerText = 'VITÓRIA'
+            frase.classList.add('animacaoVitoria')
+            botaoComecar.innerText = 'JOGAR NOVAMENTE'
+        }
+
+        else {
+            frase.innerHTML = "Acertou!"
+            executaSequencia()
+        }
         
     }
 }
@@ -109,17 +124,17 @@ function executaSequencia() {
     gerarCorAleatoria()
     sequenciaDeCoresUsuario = []
     piscaCores()
-    pontos.innerHTML = Pontuacao++
-    
 }
 
 
 function reiniciarJogo() {
     Pontuacao = 0
     pontos.innerHTML = Pontuacao 
-    botaoComecar.innerHTML = "Iniciar"
+    botaoComecar.innerHTML = "INICIAR"
     frase.innerHTML = "Atenção na sequência"
     sequenciaDeCoresGeradas = []
+    frase.classList.remove('animacaoDerrota')
+    frase.classList.remove('animacaoVitoria')
     executaSequencia()
 }
 
