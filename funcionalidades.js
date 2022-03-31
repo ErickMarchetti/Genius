@@ -28,7 +28,9 @@ function piscaCores(arrayDeCores = sequenciaDeCoresGeradas) {
 
         if(contadorDoTemporizador === arrayDeCores.length) {
             clearInterval(temporizador)
-            rmOrAddEvent('add')
+            setTimeout(() => {
+                rmOrAddEvent('add')
+            }, 900)
         }
 
     }, 900)
@@ -48,9 +50,9 @@ function guardarCorClicada(event) {
 
     event.stopPropagation()
 
-    const botaoClicadoAtual = event.target.id
+    const idBotaoClicadoAtual = event.target.id
 
-    sequenciaDeCoresUsuario.push(botaoClicadoAtual)
+    sequenciaDeCoresUsuario.push(idBotaoClicadoAtual)
 
 }
 
@@ -87,11 +89,13 @@ function rmOrAddEvent(removerOuAdicionar) {
     if(removerOuAdicionar === 'rm') {
         botoesColoridos.forEach(item => item.removeEventListener('click', guardarCorClicada))
         botoesColoridos.forEach(item => item.removeEventListener('click', compararCorClicada))
+        botoesColoridos.forEach(item => item.classList.remove('botao'))
     }
 
     else if(removerOuAdicionar === 'add') {
         botoesColoridos.forEach(item => item.addEventListener('click', guardarCorClicada))
         botoesColoridos.forEach(item => item.addEventListener('click', compararCorClicada))
+        botoesColoridos.forEach(item => item.classList.add('botao'))
     }
 }
 
